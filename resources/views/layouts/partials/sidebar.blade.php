@@ -4,7 +4,7 @@
         <a href="index3.html" class="brand-link">
             <img src="{{ asset('dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo"
                 class="brand-image img-circle elevation-3" style="opacity: .8">
-            <span class="brand-text font-weight-light">ARSIP SURAT</span>
+            <span class="brand-text font-weight-light">Laravel Boilerplate</span>
         </a>
 
         <!-- Sidebar -->
@@ -46,47 +46,19 @@
                             'is_superuser' => true, // Menambahkan field ini untuk mengontrol akses
                         ],
                         (object) [
-                            'title' => 'DOKUMEN SURAT',
+                            'title' => 'DROPDOWN EXAMPLE',
                         ],
                         (object) [
                             'icon' => 'fas fa-book',
-                            'name' => 'Sekretariat',
+                            'name' => 'Dropdown Example',
                             'childs' => [
                                 (object) [
-                                    'name' => 'Surat Masuk',
-                                    'link' => '/sekretariat/surat-masuk',
+                                    'name' => 'Dropdown 1',
+                                    'link' => '#',
                                 ],
                                 (object) [
-                                    'name' => 'Surat Keluar',
-                                    'link' => '/sekretariat/surat-keluar',
-                                ],
-                            ],
-                        ],
-                        (object) [
-                            'icon' => 'fas fa-book',
-                            'name' => 'Bidang Pemuda',
-                            'childs' => [
-                                (object) [
-                                    'name' => 'Surat Masuk',
-                                    'link' => '/pemuda/surat-masuk',
-                                ],
-                                (object) [
-                                    'name' => 'Surat Keluar',
-                                    'link' => '/pemuda/surat-keluar',
-                                ],
-                            ],
-                        ],
-                        (object) [
-                            'icon' => 'fas fa-book',
-                            'name' => 'Bidang Olahraga',
-                            'childs' => [
-                                (object) [
-                                    'name' => 'Surat Masuk',
-                                    'link' => '/olahraga/surat-masuk',
-                                ],
-                                (object) [
-                                    'name' => 'Surat Keluar',
-                                    'link' => '/olahraga/surat-keluar',
+                                    'name' => 'Dropdown 2',
+                                    'link' => '#',
                                 ],
                             ],
                         ],
