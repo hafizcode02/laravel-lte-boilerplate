@@ -21,5 +21,27 @@ The feature include :
 <img src="https://github.com/user-attachments/assets/f6ad36d1-9b6a-425e-9e4d-347f1fcb5302" height="400" alt="Manage User Page">
 <img src="https://github.com/user-attachments/assets/ce23267a-fb6f-4429-805d-8228ebc1914a" height="400" alt="Change Profile Page">
 
+## How to Install
+```bash
+composer install
+```
+
+```bash
+php artisan key:generate
+```
+
+```bash
+# Make sure before you run this command, you have done set your .env file
+php artisan migrate
+```
+
+```bash
+php artisan db:seed
+```
+
+```bash
+php artisan serve
+```
+
 
 
