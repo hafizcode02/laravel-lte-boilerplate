@@ -88,9 +88,12 @@
 
                         @php
                             $hasActiveChild = false;
+
+                            // Check if any child route is active
                             if (count($menu->childs)) {
                                 foreach ($menu->childs as $child) {
-                                    if (Request::is(trim($child->link, '/'))) {
+                                    // Use wildcard matching to check if current route or its children are active
+                                    if (Request::is(trim($child->link, '/') . '*')) {
                                         $hasActiveChild = true;
                                         break;
                                     }
@@ -98,9 +101,8 @@
                             }
                         @endphp
 
-                        <li class="nav-item @if ($hasActiveChild) menu-is-opening menu-open @endif">
-                            <a class="nav-link
-                            @if ((!count($menu->childs) && Request::is(trim($menu->link, '/'))) || $hasActiveChild) active @endif"
+                        <li class="nav-item @if ($hasActiveChild) menu-open @endif">
+                            <a class="nav-link @if ((!count($menu->childs) && Request::is(trim($menu->link, '/') . '*')) || $hasActiveChild) active @endif"
                                 href="{{ count($menu->childs) ? '#' : $menu->link }}">
                                 <i class="nav-icon {{ $menu->icon }}"></i>
                                 <p>{{ $menu->name }}</p>
@@ -110,10 +112,10 @@
                             </a>
                             @if (count($menu->childs))
                                 <ul class="nav nav-treeview"
-                                    style="{{ Request::is(trim($child->link, '/')) ? 'display: block;' : 'display: none;' }}">
+                                    style="{{ $hasActiveChild ? 'display: block;' : 'display: none;' }}">
                                     @foreach ($menu->childs as $child)
                                         <li class="nav-item">
-                                            <a class="nav-link {{ Request::is(trim($child->link, '/')) ? 'active' : '' }}"
+                                            <a class="nav-link {{ Request::is(trim($child->link, '/') . '*') ? 'active' : '' }}"
                                                 href="{{ $child->link }}">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>{{ $child->name }}</p>
